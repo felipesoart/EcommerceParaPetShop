@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PetShopDoBairro" Class="BancoDeDadosPadraoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\;Initial Catalog=PetShopDoBairro;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PetShopDoBairroConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.USUARIO" Member="USUARIO">
+    <Type Name="USUARIO">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOME" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CPFCNPJ" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="TIPOPESSOA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="SENHA" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ATIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EMPRESA" Member="EMPRESA">
+    <Type Name="EMPRESA">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMEFANTASIA" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="RAZAOSOCIAL" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CNPJ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ENDERECO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BAIRRO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CIDADE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ESTADO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CEP" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="TELEFONE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TELEFONE2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="EMPRESA_FILIAL" Member="FILIAL" ThisKey="ID" OtherKey="IDEMPRESA" Type="FILIAL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FILIAL" Member="FILIAL">
+    <Type Name="FILIAL">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMEFANTASIA" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="RAZAOSOCIAL" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CNPJ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ENDERECO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BAIRRO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CIDADE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ESTADO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CEP" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="TELEFONE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TELEFONE2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="IDEMPRESA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EMPRESA_FILIAL" Member="EMPRESA" ThisKey="IDEMPRESA" OtherKey="ID" Type="EMPRESA" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
